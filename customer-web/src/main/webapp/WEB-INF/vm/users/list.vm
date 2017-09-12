@@ -1,6 +1,6 @@
-<DIV id="navBar" title="users">
+<DIV id="navBar" title="用户数据">
 	<li><a href="#springUrl('')/">首页</a><span class="divider">/</span></li>
-	<li class="active">users</li>
+	<li class="active">用户数据</li>
 </DIV>
 <form class="well form-search" name="usersListForm" action="/users" method="POST">
 	<!-- 智能分页与排序 -->
@@ -55,7 +55,7 @@
 					<a class="btn btn-mini" onclick="XUI.window.open('/users/${item.id}',null,'PUT',{title:$(this).text()})"><i class="icon-pencil"></i> 修改</a>
 					<a class="btn btn-mini" onclick="XUI.window.open('/users/${item.id}',null,'GET',{title:$(this).text()})"><i class="icon-eye-open"></i> 查看</a>
 					<a class="btn btn-mini" onclick="XUI.window.open('/orders/add/$!{item.id}',null,'PUT',{title:$(this).text()})"><i class="icon-pencil"></i>添加订单</a>
-					<a class="btn btn-mini" onclick="XUI.window.open('/orders/userOrderlist/$!{item.id}',null,'PUT',{title:$(this).text()})"><i class="icon-pencil"></i>查看订单</a>
+					<a class="btn btn-mini" onclick="XUI.window.open('/orders/userOrderlist/$!{item.id}',null,'GET',{title:$(this).text()})"><i class="icon-pencil"></i>查看订单</a>
 				</div>
 			</td>
 		</tr>

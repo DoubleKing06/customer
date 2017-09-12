@@ -66,6 +66,31 @@ public class OrdersController{
 		return "orders/list";
 	}
 	
+	
+	/**
+	 * 列表展示
+	 * @param orders 实体对象
+	 * @param page 分页对象
+	 * @return
+	 */
+	@RequestMapping(value="userOrderlist/{id}",method = {RequestMethod.GET,RequestMethod.POST})
+	public String userOrderlist(@PathVariable int id,Page<Orders> page,Model view) throws Exception{
+		try {
+			System.out.println("---------->"+id);
+			Orders orders =new Orders();
+			view.addAttribute("orders",orders);
+			if(id >0){
+				orders.setUserid(id);
+			}
+			view.addAttribute("page",ordersService.selectPage(orders,page));			
+		} catch (Exception e) {
+			LOGGER.error("失败:"+e.getMessage(),e);
+			throw e;
+		}finally{
+		}	
+		return "orders/list";
+	}
+	
 /*	*//**
 	 * 列表展示某个用户的订单
 	 * @param orders 实体对象

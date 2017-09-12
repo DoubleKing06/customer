@@ -1,8 +1,8 @@
 <div class="content">
 	<div class="header">
-		<div class="header-info">
+		<!--<div class="header-info">
 			<span id="serverDate" class="label" data-serverTime="1505135291396">2017-09-11 21:08:11</span>
-		</div>
+		</div>-->
 		<h1 class="page-title">&nbsp;</h1>
 	</div>
 	<ul class="breadcrumb">&nbsp;</ul>
@@ -12,8 +12,8 @@
 		</div>
 		<footer>
 			<hr>
-			&copy; 2017 <a href="http://customer.com" target="_blank">customer.com</a>
-			<p class="pull-right"><span>Design by customer.com<a></a></span></p>
+			&copy; 2017 <a href="http://huazhang.com" target="_blank">huazhang.com</a>
+			<p class="pull-right"><span>Design by liukunkun<a></a></span></p>
 		</footer>
 	</div>
 </div>

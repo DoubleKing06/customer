@@ -12,17 +12,22 @@
  	<tbody>
 		<tr>
  			<td>1</td>
- 			<td>Orders</td>
+ 			<!--<td>用户数据</td>-->
+ 			<td>
+ 				<a onclick="XUI.gotoPage('/users')">用户数据</a>
+ 			</td>
+ 			<td class="textC">
+ 				<a class="btn btn-small btn-info" onclick="XUI.gotoPage('/users')">查看详情</a>
+ 			</td>
+ 		</tr> 	
+		<tr>
+ 			<td>2</td>
+ 			<!--<td>订单数据</td>-->
+  			<td><a onclick="XUI.gotoPage('/orders')">订单数据</a></td>			
  			<td class="textC">
  				<a class="btn btn-small btn-info" onclick="XUI.gotoPage('/orders')">查看详情</a>
  			</td>
  		</tr>
-		<tr>
- 			<td>2</td>
- 			<td>Users</td>
- 			<td class="textC">
- 				<a class="btn btn-small btn-info" onclick="XUI.gotoPage('/users')">查看详情</a>
- 			</td>
- 		</tr>
+
  	</tbody>
 </table>
