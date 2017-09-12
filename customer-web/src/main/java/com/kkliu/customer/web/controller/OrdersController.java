@@ -76,7 +76,7 @@ public class OrdersController{
 	@RequestMapping(value="userOrderlist/{id}",method = {RequestMethod.GET,RequestMethod.POST})
 	public String userOrderlist(@PathVariable int id,Page<Orders> page,Model view) throws Exception{
 		try {
-			System.out.println("---------->"+id);
+//			System.out.println("---------->"+id);
 			Orders orders =new Orders();
 			view.addAttribute("orders",orders);
 			if(id >0){
