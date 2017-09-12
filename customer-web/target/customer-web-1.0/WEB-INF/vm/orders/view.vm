@@ -1,0 +1,24 @@
+<table class="table table-bordered table-striped formLayout m0">
+	<tr>
+		<td>用户编号:</td>
+		<td>$!{orders.userid}</td>
+		<td>用户名:</td>
+		<td>$!{orders.username}</td>
+	</tr>
+	<tr>
+		<td>电话:</td>
+		<td>$!{orders.telphone}</td>
+		<td>订单号:</td>
+		<td>$!{orders.id}</td>
+	</tr>
+	<tr>
+		<td>订单金额:</td>
+		<td>$!{orders.orderAmount}</td>
+		<td>款式:</td>
+		<td>$!{orders.type}</td>
+	</tr>
+	<tr>
+		<td>订单时间:</td>
+		<td colspan="3">$!{orders.ordertime}</td>
+	</tr>
+</table>

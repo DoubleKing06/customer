@@ -1,0 +1,7 @@
+com\kkliu\customer\dao\OrdersDao.class
+com\kkliu\customer\dao\base\BaseDao.class
+com\kkliu\customer\dao\UsersDao.class
+com\kkliu\customer\dao\impl\UsersDaoImpl.class
+com\kkliu\customer\dao\impl\OrdersDaoImpl.class
+com\kkliu\customer\dao\base\MyBatisSupport.class
+com\kkliu\customer\dao\base\BaseDaoImpl.class

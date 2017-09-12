@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kkliu.customer.dao.OrdersDao">
+
+	  <resultMap id="BaseResultMap" type="com.kkliu.customer.domain.Orders" >
+	    <id column="id" property="id" jdbcType="INTEGER" />
+	    <result column="username" property="username" jdbcType="VARCHAR" />
+	    <result column="telphone" property="telphone" jdbcType="VARCHAR" />
+	    <result column="userid" property="userid" jdbcType="INTEGER" />
+	    <result column="orderAmount" property="orderAmount" jdbcType="FLOAT" />
+	    <result column="type" property="type" jdbcType="VARCHAR" />
+	    <result column="ordertime" property="ordertime" jdbcType="VARCHAR" />
+  	</resultMap>
+
+
+
+	<!-- 通过用户id查询用户所有的订单列表 -->
+	<select id="userOrderlist" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select * from orders where userid = #{id}
+	</select>
+
+
+
+
+
+
+	<!-- orders 所有查询列 -->
+	<sql id="QUERY_COLUMN_LIST">
+		<![CDATA[userid,username,telphone,id,orderAmount,type,ordertime]]>
+	</sql>
+
+	<!-- orders 查询列来源表-->
+	<sql id="QUERY_FROM_TABLE"><![CDATA[FROM orders]]></sql>
+	
+	<!-- 全部条件(更多功能可以通过queryData扩展实现)  -->
+	<sql id="QUERY_WHERE_CLAUSE">
+		<where>
+			<if test="userid != null and userid != ''"><![CDATA[AND userid = #{userid}]]></if>
+			<if test="username != null and username != ''"><![CDATA[AND username = #{username}]]></if>
+			<if test="telphone != null and telphone != ''"><![CDATA[AND telphone = #{telphone}]]></if>
+			<if test="id != null and id != ''"><![CDATA[AND id = #{id}]]></if>
+			<if test="orderAmount != null and orderAmount != ''"><![CDATA[AND orderAmount = #{orderAmount}]]></if>
+			<if test="type != null and type != ''"><![CDATA[AND type = #{type}]]></if>
+			<if test="ordertime != null and ordertime != ''"><![CDATA[AND ordertime = #{ordertime}]]></if>
+		</where>
+	</sql>
+	
+	<!-- 智能排序与分页 -->
+	<sql id="QUERY_ORDER_LIMIT_CONDTION">
+		<if test="orderField != null and orderField != '' and orderFieldType != null and orderFieldType != ''"><![CDATA[ORDER BY ${orderField} ${orderFieldType}]]></if>
+		<if test="startIndex != null and startIndex &gt;= 0 and pageSize != null and pageSize &gt; 0"><![CDATA[LIMIT #{startIndex},#{pageSize}]]></if>
+	</sql>
+
+	<!-- 更新列字段,只要不为NULL则更新,除开主键列 -->
+	<sql id="UPDATE_COLUMN_SET">
+		<set>
+			<if test="userid != null"><![CDATA[userid = #{userid},]]></if>
+			<if test="username != null"><![CDATA[username = #{username},]]></if>
+			<if test="telphone != null"><![CDATA[telphone = #{telphone},]]></if>
+			<if test="orderAmount != null"><![CDATA[orderAmount = #{orderAmount},]]></if>
+			<if test="type != null"><![CDATA[type = #{type},]]></if>
+			<if test="ordertime != null"><![CDATA[ordertime = #{ordertime},]]></if>
+		</set>
+	</sql>
+
+	<!-- 插入orders记录 -->
+	<insert id="insertEntry" parameterType="orders" >
+		<![CDATA[
+			INSERT INTO orders (userid,username,telphone,id,orderAmount,type,ordertime)
+			VALUES (#{userid},#{username},#{telphone},#{id},#{orderAmount},#{type},#{ordertime})
+		]]>
+	</insert>
+	
+	<!-- 返回插入的编号,在事务开启状态下有效 -->
+	<select id="lastSequence" resultType="int"><![CDATA[SELECT LAST_INSERT_ID() AS id]]></select>
+
+	<!-- 删除记录,主键IN(array) -->
+	<delete id="deleteByArrayKey" parameterType="java.lang.reflect.Array" >
+		<![CDATA[DELETE FROM orders WHERE id IN]]>
+		<foreach collection="array" item="id" open="(" separator="," close=")">
+			<![CDATA[#{id}]]>
+		</foreach>
+	</delete>
+
+	<!-- 删除,通过条件 -->
+	<update id="deleteByCondtion" parameterType="orders" >
+		<![CDATA[DELETE FROM orders]]>
+		<include refid="QUERY_WHERE_CLAUSE"/>
+	</update>
+
+	<!-- 修改记录通过主键 -->
+	<update id="updateByKey" parameterType="orders" >
+		<![CDATA[UPDATE orders]]>
+		<include refid="UPDATE_COLUMN_SET"/>
+		<![CDATA[WHERE id = #{id}]]>
+	</update>
+
+	<!-- 查询,通过主键IN(array) -->
+	<select id="selectEntryArray" parameterType="java.lang.reflect.Array" resultType="orders">
+		<![CDATA[SELECT]]>
+		<include refid="QUERY_COLUMN_LIST"/>
+		<include refid="QUERY_FROM_TABLE"/>
+		<![CDATA[WHERE id IN]]>
+		<foreach collection="array" item="id" open="(" separator="," close=")">
+			<![CDATA[#{id}]]>
+		</foreach>
+	</select>
+
+	<!-- 查询,通过条件 -->
+	<select id="selectEntryList" parameterType="orders" resultType="orders">
+		<![CDATA[SELECT]]>
+		<include refid="QUERY_COLUMN_LIST"/>
+		<include refid="QUERY_FROM_TABLE"/>
+		<include refid="QUERY_WHERE_CLAUSE"/>
+		<include refid="QUERY_ORDER_LIMIT_CONDTION"/>
+	</select>
+
+	<!-- 总数查询,通过条件 -->
+	<select id="selectEntryListCount" parameterType="orders" resultType="int">
+		<![CDATA[SELECT COUNT(id) AS dataCount]]>
+		<include refid="QUERY_FROM_TABLE"/>
+		<include refid="QUERY_WHERE_CLAUSE"/>
+	</select>
+	
+		<!-- 总数查询,通过条件 -->
+	<select id="userOrderCount" parameterType="java.lang.Integer" resultType="int">
+		select count(*) from orders where userid = #{id}
+	</select>
+	
+	
+	<!-- 其它SQL语句 -->
+	
+	
+</mapper>

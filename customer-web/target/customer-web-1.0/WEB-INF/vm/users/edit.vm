@@ -1,0 +1,41 @@
+<form name="usersUpdateForm" action="/users/save" method="POST" data-resultType="JSON">
+	<table class="table table-bordered table-striped formLayout m0">
+		<tr>
+			<td>编号:</td>
+			<td><input type="text" name="id" value="$!{users.id}" placeholder="编号" readonly/></td>
+			<td>姓名:</td>
+			<td><input type="text" name="username" value="$!{users.username}" placeholder="姓名"/></td>
+		</tr>
+		<tr>
+			<td>电话:</td>
+			<td><input type="text" name="telphone" value="$!{users.telphone}" placeholder="电话"/></td>
+			<td>性别:</td>
+			<td><input type="text" name="sex" value="$!{users.sex}" placeholder="性别"/></td>
+		</tr>
+		<tr>
+			<td>生日:</td>
+			<td><input type="text" name="birthday" value="$!{users.birthday}" placeholder="生日"/></td>
+			<td>身高:</td>
+			<td><input type="text" name="height" value="$!{users.height}" placeholder="身高"/></td>
+		</tr>
+		<tr>
+			<td>腰围:</td>
+			<td><input type="text" name="waist" value="$!{users.waist}" placeholder="腰围"/></td>
+			<td>职业:</td>
+			<td><input type="text" name="job" value="$!{users.job}" placeholder="职业"/></td>
+		</tr>
+		<tr>
+			<td>型号:</td>
+			<td><input type="text" name="model" value="$!{users.model}" placeholder="型号"/></td>
+			<td>住址:</td>
+			<td><input type="text" name="address" value="$!{users.address}" placeholder="住址"/></td>
+		</tr>
+		<tr>
+			<td>备注:</td>
+			<td colspan="3"><input type="text" name="content" value="$!{users.content}" placeholder="备注"/></td>
+		</tr>
+	</table>
+</form>
+<div class="bottomBar">
+	<button class="btn btn-primary" onclick="$('form[name=usersUpdateForm]').submit()">保存更改</button>
+</div>

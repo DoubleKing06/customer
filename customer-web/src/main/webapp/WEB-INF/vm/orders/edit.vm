@@ -1,0 +1,29 @@
+<form name="ordersUpdateForm" action="/orders/save" method="POST" data-resultType="JSON">
+	<table class="table table-bordered table-striped formLayout m0">
+		<tr>
+			<td>用户编号:</td>
+			<td><input type="text" name="userid" value="$!{orders.userid}" placeholder="用户编号" readonly/></td>
+			<td>用户名:</td>
+			<td><input type="text" name="username" value="$!{orders.username}" placeholder="用户名" readonly/></td>
+		</tr>
+		<tr>
+			<td>电话:</td>
+			<td><input type="text" name="telphone" value="$!{orders.telphone}" placeholder="电话" readonly/></td>
+			<td>订单号:</td>
+			<td><input type="text" name="id" value="$!{orders.id}" placeholder="订单号" readonly/></td>
+		</tr>
+		<tr>
+			<td>订单金额:</td>
+			<td><input type="text" name="orderAmount" value="$!{orders.orderAmount}" placeholder="订单金额"/></td>
+			<td>款式:</td>
+			<td><input type="text" name="type" value="$!{orders.type}" placeholder="款式"/></td>
+		</tr>
+		<tr>
+			<td>订单时间:</td>
+			<td colspan="3"><input type="text" name="ordertime" value="$!{orders.ordertime}" placeholder="订单时间"/></td>
+		</tr>
+	</table>
+</form>
+<div class="bottomBar">
+	<button class="btn btn-primary" onclick="$('form[name=ordersUpdateForm]').submit()">保存更改</button>
+</div>

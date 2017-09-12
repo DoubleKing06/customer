@@ -1,0 +1,36 @@
+<table class="table table-bordered table-striped formLayout m0">
+	<tr>
+		<td>编号:</td>
+		<td>$!{users.id}</td>
+		<td>姓名:</td>
+		<td>$!{users.username}</td>
+	</tr>
+	<tr>
+		<td>电话:</td>
+		<td>$!{users.telphone}</td>
+		<td>性别:</td>
+		<td>$!{users.sex}</td>
+	</tr>
+	<tr>
+		<td>生日:</td>
+		<td>$!{users.birthday}</td>
+		<td>身高:</td>
+		<td>$!{users.height}</td>
+	</tr>
+	<tr>
+		<td>腰围:</td>
+		<td>$!{users.waist}</td>
+		<td>职业:</td>
+		<td>$!{users.job}</td>
+	</tr>
+	<tr>
+		<td>型号:</td>
+		<td>$!{users.model}</td>
+		<td>住址:</td>
+		<td>$!{users.address}</td>
+	</tr>
+	<tr>
+		<td>备注:</td>
+		<td colspan="3">$!{users.content}</td>
+	</tr>
+</table>
