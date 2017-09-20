@@ -52,10 +52,10 @@ public abstract class BaseServiceImpl<T, KEY extends Serializable> implements Ba
 	
 	@SuppressWarnings("unchecked")
 	public int saveOrUpdate(T t) {
-		Long id = 0L;
+		Integer id = 0;
 		try {
 			Class<?> clz = t.getClass();
-			id = (Long)clz.getMethod("getId").invoke(t);
+			id = (Integer)clz.getMethod("getId").invoke(t);
 		} catch (Exception e) {
 			LOGGER.warn("获取对象主键值失败!");
 		}

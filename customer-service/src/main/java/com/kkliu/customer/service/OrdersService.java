@@ -20,4 +20,8 @@ public interface OrdersService extends BaseService<Orders,Integer> {
 	
 	public int addOrder(Orders orders);
 	
+	public int delOrder(Integer id) throws Exception;
+	
+	public int modfiyOrder(Orders orders) throws Exception;
+	
 }

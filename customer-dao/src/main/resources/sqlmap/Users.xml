@@ -48,7 +48,7 @@
 			<if test="model != null"><![CDATA[model = #{model},]]></if>
 			<if test="address != null"><![CDATA[address = #{address},]]></if>
 			<if test="content != null"><![CDATA[content = #{content},]]></if>
-			<if test="totalAmount != null and totalAmount != '' and totalAmount != 0.0"><![CDATA[totalAmount = #{totalAmount},]]></if>
+			<if test="totalAmount != null"><![CDATA[totalAmount = #{totalAmount},]]></if>
 		</set>
 	</sql>
 
@@ -56,7 +56,7 @@
 	<insert id="insertEntry" parameterType="users" >
 		<![CDATA[
 			INSERT INTO users (id,username,telphone,sex,birthday,height,waist,job,model,address,content,totalAmount)
-			VALUES (#{id},#{username},#{telphone},#{sex},#{birthday},#{height},#{waist},#{job},#{model},#{address},#{content},#{totalAmount})
+			VALUES (#{id},#{username},#{telphone},#{sex},#{birthday},#{height},#{waist},#{job},#{model},#{address},#{content},0)
 		]]>
 	</insert>
 	

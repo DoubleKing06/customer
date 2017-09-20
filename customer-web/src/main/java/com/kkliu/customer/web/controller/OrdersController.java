@@ -172,7 +172,7 @@ public class OrdersController{
 	}
 	
 	/**
-	 * 通过编号删除对象
+	 * 通过编号删除订单
 	 * @param id 对象编号
 	 * @return
 	 */
@@ -180,7 +180,8 @@ public class OrdersController{
 	public @ResponseBody Message del(@PathVariable Integer id,Model view) throws Exception{
     	Message msg = null;
     	try {
-			int res = ordersService.deleteByKey(id);
+//			int res = ordersService.deleteByKey(id);
+			int res = ordersService.delOrder(id);
 			msg  = res > 0 ? Message.success() : Message.failure();
 		} catch (Exception e) {
 			LOGGER.error("失败:"+e.getMessage(),e);
@@ -214,7 +215,7 @@ public class OrdersController{
 	}
 	
 	/**
-	 * 保存方法
+	 * 修改订单-保存
 	 * @param orders 实体对象
 	 * @return
 	 */
@@ -223,7 +224,8 @@ public class OrdersController{
     	Message msg= null;
     	try {
     		
-			int res = ordersService.saveOrUpdate(orders);
+//			int res = ordersService.saveOrUpdate(orders);
+			int res = ordersService.modfiyOrder(orders);
 			msg  = res > 0 ? Message.success() : Message.failure();
 		} catch (Exception e) {
 			LOGGER.error("失败:"+e.getMessage(),e);
@@ -234,7 +236,7 @@ public class OrdersController{
 	}
 	
 	/**
-	 * 保存方法
+	 * 添加订单
 	 * @param user列表页面添加订单
 	 * @return
 	 */

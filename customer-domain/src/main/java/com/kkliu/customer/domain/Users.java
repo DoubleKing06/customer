@@ -23,15 +23,15 @@ public class Users extends BaseDomain {
 	private String model;
 	private String address;
 	private String content;
-	private float totalAmount;
+	private Float totalAmount;
 	
 	
 
-	public float getTotalAmount() {
+	public Float getTotalAmount() {
 		return totalAmount;
 	}
 
-	public void setTotalAmount(float totalAmount) {
+	public void setTotalAmount(Float totalAmount) {
 		this.totalAmount = totalAmount;
 	}
 
