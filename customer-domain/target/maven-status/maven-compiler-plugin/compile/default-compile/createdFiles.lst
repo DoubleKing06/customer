@@ -1,6 +1,6 @@
 com\kkliu\customer\domain\common\Page.class
-com\kkliu\customer\domain\Users.class
 com\kkliu\customer\domain\base\BaseDomain.class
-com\kkliu\customer\domain\base\BaseQuery.class
+com\kkliu\customer\domain\Users.class
 com\kkliu\customer\domain\common\Message.class
 com\kkliu\customer\domain\Orders.class
+com\kkliu\customer\domain\base\BaseQuery.class

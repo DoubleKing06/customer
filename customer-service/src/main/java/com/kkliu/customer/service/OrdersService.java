@@ -18,4 +18,6 @@ public interface OrdersService extends BaseService<Orders,Integer> {
 	
 	public List<Orders> userOrderlist(int id);
 	
+	public int addOrder(Orders orders);
+	
 }

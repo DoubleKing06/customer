@@ -48,6 +48,9 @@ public class UsersController{
 	public String list(Users users,Page<Users> page,Model view) throws Exception{
 		try {
 			view.addAttribute("users",users);
+//			Page<Users> usersTemp =usersService.selectPage(users,page);
+			
+			
 			view.addAttribute("page",usersService.selectPage(users,page));			
 		} catch (Exception e) {
 			LOGGER.error("失败:"+e.getMessage(),e);

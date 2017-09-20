@@ -23,6 +23,17 @@ public class Users extends BaseDomain {
 	private String model;
 	private String address;
 	private String content;
+	private float totalAmount;
+	
+	
+
+	public float getTotalAmount() {
+		return totalAmount;
+	}
+
+	public void setTotalAmount(float totalAmount) {
+		this.totalAmount = totalAmount;
+	}
 
 	public Users(){
 		//默认无参构造方法
@@ -201,6 +212,7 @@ public class Users extends BaseDomain {
 				buf.append("model=").append(getModel()).append(", ");
 				buf.append("address=").append(getAddress()).append(", ");
 				buf.append("content=").append(getContent()).append(", ");
+				buf.append("totalAmount=").append(getTotalAmount()).append(", ");
 				buf.append("]");
 		return buf.toString();
 	}

@@ -1,6 +1,6 @@
-com\kkliu\customer\service\impl\OrdersServiceImpl.class
-com\kkliu\customer\service\impl\UsersServiceImpl.class
-com\kkliu\customer\service\OrdersService.class
-com\kkliu\customer\service\base\BaseService.class
 com\kkliu\customer\service\UsersService.class
+com\kkliu\customer\service\OrdersService.class
 com\kkliu\customer\service\base\BaseServiceImpl.class
+com\kkliu\customer\service\impl\OrdersServiceImpl.class
+com\kkliu\customer\service\base\BaseService.class
+com\kkliu\customer\service\impl\UsersServiceImpl.class

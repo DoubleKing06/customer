@@ -248,7 +248,7 @@ public class OrdersController{
     		String test = df.format(date).toString();
     		orderTemp.setOrdertime(test);
 //    		System.out.println("------------"+orderTemp.getOrdertime());
-			int res = ordersService.saveOrUpdate(orderTemp);
+			int res = ordersService.addOrder(orderTemp);
 			msg  = res > 0 ? Message.success() : Message.failure();
 		} catch (Exception e) {
 			LOGGER.error("失败:"+e.getMessage(),e);
