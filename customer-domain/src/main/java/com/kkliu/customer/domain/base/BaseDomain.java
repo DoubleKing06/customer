@@ -16,6 +16,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 public class BaseDomain extends BaseQuery {
 	private static final long serialVersionUID = 1L;
 	private Integer id;// 编号
+	private Integer status;//状态
 	
 	private String uuid;// 唯一编号
 	
@@ -35,6 +36,12 @@ public class BaseDomain extends BaseQuery {
 	
 
 	
+	public Integer getStatus() {
+		return status;
+	}
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 	public Integer getId() {
 		return id;
 	}

@@ -84,7 +84,14 @@ public class OrdersServiceImpl extends BaseServiceImpl<Orders,Integer> implement
 	public int delOrder(Integer id) throws Exception {
 		try{
 			Orders orderTemp=ordersDao.selectEntry(id);
-			int i =ordersDao.deleteByKey(id);
+			
+			Orders delOrder =new Orders();
+			delOrder.setId(id);
+			delOrder.setStatus(0);
+			
+			int i =ordersDao.updateByKey(delOrder);
+			
+//			int i =ordersDao.deleteByKey(id);
 			if(i>0){
 				Users user =usersDao.selectEntry(orderTemp.getUserid());
 				float amountTemp = user.getTotalAmount();
@@ -137,5 +144,19 @@ public class OrdersServiceImpl extends BaseServiceImpl<Orders,Integer> implement
 		}
 		
 		return 0;
+	}
+
+
+
+
+	@Override
+	public int updateOrdersStausByUserid(Integer userid) throws Exception {
+		// TODO Auto-generated method stub
+		try{
+			return ordersDao.updateOrdersStausByUserid(userid);
+		}catch (Exception e){
+			throw new Exception(e.getMessage());
+		}
+		
 	}
 }

@@ -19,6 +19,7 @@ import com.kkliu.customer.dao.OrdersDao;
 @Repository("ordersDao")
 public class OrdersDaoImpl extends BaseDaoImpl<Orders,Integer> implements OrdersDao {
 	private final static String NAMESPACE = "com.kkliu.customer.dao.OrdersDao.";
+	private static final String UPDATE_ORDERS_STATUS_BY_USERID = "updateOrdersStausByUserid";
 	
 	//返回本DAO命名空间,并添加statement
 	public String getNameSpace(String statement) {
@@ -41,6 +42,15 @@ public class OrdersDaoImpl extends BaseDaoImpl<Orders,Integer> implements Orders
 	public Integer selectUserOrdersCount(Orders t) {
 		// TODO Auto-generated method stub
 		return super.selectEntryListCount(t);
+	}
+
+	
+	public int updateOrdersStausByUserid(Integer userid) {
+		
+		
+		
+		// TODO Auto-generated method stub
+		return this.update(getNameSpace(UPDATE_ORDERS_STATUS_BY_USERID), userid);
 	}
 
 

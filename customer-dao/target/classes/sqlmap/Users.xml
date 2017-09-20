@@ -26,6 +26,7 @@
 			<if test="address != null and address != ''"><![CDATA[AND address = #{address}]]></if>
 			<if test="content != null and content != ''"><![CDATA[AND content = #{content}]]></if>
 			<if test="totalAmount != null and totalAmount != ''"><![CDATA[AND totalAmount >= #{totalAmount}]]></if>
+			AND status=1
 		</where>
 	</sql>
 	
@@ -49,6 +50,8 @@
 			<if test="address != null"><![CDATA[address = #{address},]]></if>
 			<if test="content != null"><![CDATA[content = #{content},]]></if>
 			<if test="totalAmount != null"><![CDATA[totalAmount = #{totalAmount},]]></if>
+			<if test="status != null"><![CDATA[status = #{status},]]></if>
+			
 		</set>
 	</sql>
 

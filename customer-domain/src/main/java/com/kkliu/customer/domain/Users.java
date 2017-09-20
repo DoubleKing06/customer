@@ -24,6 +24,7 @@ public class Users extends BaseDomain {
 	private String address;
 	private String content;
 	private Float totalAmount;
+
 	
 	
 

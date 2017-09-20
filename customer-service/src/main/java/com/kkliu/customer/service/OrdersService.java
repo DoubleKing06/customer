@@ -22,6 +22,10 @@ public interface OrdersService extends BaseService<Orders,Integer> {
 	
 	public int delOrder(Integer id) throws Exception;
 	
+	public int updateOrdersStausByUserid(Integer  userid) throws Exception;//通过userid批量修改order状态
+	
 	public int modfiyOrder(Orders orders) throws Exception;
+	
+	
 	
 }

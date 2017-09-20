@@ -18,4 +18,7 @@ public interface OrdersDao extends BaseDao<Orders,Integer>{
 	//自定义扩展
 	public List<Orders> userOrderlist(int id);
 	
+	//通过userid批量修改订单状态
+	public int updateOrdersStausByUserid(Integer userid);
+	
 }

@@ -14,4 +14,5 @@ import com.kkliu.customer.service.base.BaseService;
  */
 public interface UsersService extends BaseService<Users,Integer> {
 	
+	public int delUser(Integer id);
 }

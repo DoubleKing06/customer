@@ -94,7 +94,7 @@ public class UsersController{
 	public @ResponseBody Message del(@PathVariable Integer id,Model view) throws Exception{
     	Message msg = null;
     	try {
-			int res = usersService.deleteByKey(id);
+			int res = usersService.delUser(id);
 			msg  = res > 0 ? Message.success() : Message.failure();
 		} catch (Exception e) {
 			LOGGER.error("失败:"+e.getMessage(),e);
