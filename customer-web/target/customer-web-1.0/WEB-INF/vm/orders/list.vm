@@ -1,6 +1,6 @@
 <DIV id="navBar" title="订单数据">
 	<li><a href="#springUrl('')/">首页</a><span class="divider">/</span></li>
-	<li class="active">订单数据</li>
+	<li><a onclick="XUI.gotoPage('/users')">用户数据</a></li>
 </DIV>
 <form class="well form-search" name="ordersListForm" action="/orders" method="POST">
 	<!-- 智能分页与排序 -->

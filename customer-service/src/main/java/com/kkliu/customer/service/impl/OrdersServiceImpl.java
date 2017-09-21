@@ -62,7 +62,6 @@ public class OrdersServiceImpl extends BaseServiceImpl<Orders,Integer> implement
 		 */
 		ordersDao.insertEntry(orders);
 		
-		Users usertemp=new Users();
 		//取得用户基本信息
 		Users user =usersDao.selectEntry(orders.getUserid());
 		//取得用户现在的消费总额
@@ -70,6 +69,8 @@ public class OrdersServiceImpl extends BaseServiceImpl<Orders,Integer> implement
 		//把订单金额和用户原始消费总额相加
 		amountTemp=amountTemp+orders.getOrderAmount();
 		
+		//float num=(float)(Math.round(amountTemp*10000)/10000);
+		Users usertemp=new Users();
 		usertemp.setTotalAmount(amountTemp);
 		usertemp.setId(orders.getUserid());
 		
@@ -95,9 +96,10 @@ public class OrdersServiceImpl extends BaseServiceImpl<Orders,Integer> implement
 			if(i>0){
 				Users user =usersDao.selectEntry(orderTemp.getUserid());
 				float amountTemp = user.getTotalAmount();
-				System.out.println("======>"+amountTemp);
+//				System.out.println("======>"+amountTemp);
 				//把订单金额和用户原始消费总额相减
 				amountTemp=amountTemp-orderTemp.getOrderAmount();
+//				float num=(float)(Math.round(amountTemp*10000)/10000);
 				Users userTemp =new Users();
 				userTemp.setTotalAmount(amountTemp);
 				userTemp.setId(orderTemp.getUserid());
@@ -134,6 +136,7 @@ public class OrdersServiceImpl extends BaseServiceImpl<Orders,Integer> implement
 					//User表中totalAmount=原数据+(修改后的金额-修改前的金额)
 					orderAmount=amountTemp-(orderTemp.getOrderAmount()-orders.getOrderAmount());
 				}
+//				float num=(float)(Math.round(orderAmount*10000)/10000);
 				Users userTemp =new Users();
 				userTemp.setTotalAmount(orderAmount);
 				userTemp.setId(orders.getUserid());

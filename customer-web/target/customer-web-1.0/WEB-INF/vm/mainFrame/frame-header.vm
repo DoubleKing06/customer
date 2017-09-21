@@ -9,7 +9,7 @@
 				<ul class="dropdown-menu">
 					<li><a href="#springUrl('')/account"><i class="icon-book"></i> 个人信息</a></li>
 					<li class="divider"></li>
-					<li><a href="#springUrl('')/logout"><i class="icon-off"></i> 注销登录</a></li>
+					<li><a href="/login/logout"><i class="icon-off"></i> 注销登录</a></li>
 				</ul>
 			</li>
 		</ul>
