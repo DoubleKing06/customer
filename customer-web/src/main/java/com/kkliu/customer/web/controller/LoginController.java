@@ -1,5 +1,6 @@
 package com.kkliu.customer.web.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpSession;
@@ -34,7 +35,11 @@ public class LoginController {
 		try{
 			if(login!=null){
 				if(!login.getUsername().equals("")&&login.getUsername()!=null&&!login.getPassword().equals("")&&login.getPassword()!=null){
-					if(login.getUsername().equals("luohuazhang")&&login.getPassword().equals("1qaz2wsx")){
+		    		Date date = new Date(); 
+		    		SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd"); 
+		    		String test = df.format(date).toString();
+//					System.out.println("==========>"+test);
+					if(login.getUsername().equals("luohuazhang")&&login.getPassword().equals(test)){
 						//view.addAttribute("username", login);
 						session.setAttribute("username", login.getUsername());
 						return "redirect:/";
